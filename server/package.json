@@ -1,0 +1,39 @@
+{
+  "name": "tshirt-ecommerce-server",
+  "version": "1.0.0",
+  "description": "Backend API for T-shirt ecommerce application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch --env-file=.env index.js",
+    "test": "jest",
+    "seed": "node seeds/seedData.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "tshirt",
+    "api",
+    "nodejs",
+    "express"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
