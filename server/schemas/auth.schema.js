@@ -2,7 +2,7 @@ import { string, z } from "zod";
 
 export const registerSchema = z.object({
   email: string({ required_error: "El email es obligatorio" }).email(),
-  password: string()
+  password: string({required_error:"Debe ingresar una clave"})
     .min(8, "La contraseña debe tener al menos 8 caracteres")
     .max(100, "La contraseña no puede exceder 100 caracteres")
     .refine(

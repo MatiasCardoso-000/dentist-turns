@@ -7,10 +7,20 @@ const create = async ({ email, password, username }) => {
     VALUES($1,$2,$3)
     RETURNING EMAIL, USERNAME, ROLE_ID, UID
     `,
-    values: [email, password, username]
+    values: [email, password, username],
   };
   const { rows } = await db.query(query);
   return rows[0];
+};
+
+const find = async () => {
+  const query = {
+    text: `
+    SELECT * FROM USERS
+    `,
+  };
+  const { rows } = await db.query(query);
+  return rows;
 };
 
 const findByEmail = async (email) => {
@@ -19,7 +29,7 @@ const findByEmail = async (email) => {
       SELECT * FROM USERS
       WHERE EMAIL = $1
     `,
-    values: [email]
+    values: [email],
   };
   const { rows } = await db.query(query);
   return rows[0];
@@ -31,7 +41,7 @@ const findByUsername = async (username) => {
       SELECT * FROM USERS
       WHERE USERNAME = $1
     `,
-    values: [username]
+    values: [username],
   };
   const { rows } = await db.query(query);
   return rows[0];
@@ -39,6 +49,7 @@ const findByUsername = async (username) => {
 
 export const UserModel = {
   create,
+  find,
   findByEmail,
   findByUsername,
 };
